@@ -29,7 +29,7 @@ document.addEventListener("error", e => {
 }, true);
 
 // Typing roles
-const roles = ["network engineer", "lab troubleshooter", "problem solver", "packet watcher"];
+const roles = ["Network engineer", "Lab troubleshooter", "Problem solver", "Backend developer", "Football lover"];
 let ri = 0, ci = 0, del = false;
 (function type() {
   const w = roles[ri];
