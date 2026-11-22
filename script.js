@@ -21,7 +21,7 @@ const PROJECTS = [
 ];
 /* ===== END EDIT ===== */
 
-const $ = (s, r = document) => r.querySelector(s);
+const $ = (s, r = document) => r.querySelector(s); 
 
 // Missing images show their placeholder text instead of a broken icon
 document.addEventListener("error", e => {
