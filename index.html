@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Thu Ta Kyaw (Leo) | Aspiring Network Engineer</title>
+<meta name="description" content="Portfolio of Thu Ta Kyaw (Leo), network engineering student at Kasem Bundit University.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Orbitron:wght@600;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="glow" aria-hidden="true"></div>
+
+<nav>
+  <div class="wrap">
+    <a class="logo" href="#top">leo@portfolio:~$</a>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#playground">Playground</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#certs">Certificates</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main id="top">
+  <div class="wrap hero">
+    <div>
+      <p class="prompt">Who am I?</p>
+      <h1 class="name" data-text="Thu Ta Kyaw">Thu Ta Kyaw</h1>
+      <p class="nick">a.k.a. Leo</p>
+      <h2>I'm a <span id="typed"></span><span class="cursor">|</span></h2>
+      <p class="lead">Third-year student at Kasem Bundit University. I keep a university lab running, fix problems while lectures are live, and I'm studying networks to make it my career.</p>
+      <div class="btns">
+        <a class="btn solid" href="#projects">See my projects</a>
+        <a class="btn" href="#contact">Contact me</a>
+      </div>
+    </div>
+    <div class="photo-wrap">
+      <!-- PHOTO: save your picture as assets/photo.jpg -->
+      <div class="photo" data-ph="Add your photo: assets/photo.jpg"><img src="assets/photo.jpg/personalphotos/myphoto1.jfif" alt="Photo of Thu Ta Kyaw (Leo)"></div>
+      <span class="chip c1">VLAN</span><span class="chip c2">OSPF</span><span class="chip c3">TCP/IP</span>
+    </div>
+  </div>
+
+  <section id="about" class="reveal">
+    <div class="wrap">
+      <h3><span>&gt;</span> About me</h3>
+      <div class="about">
+        <div>
+          <p>I'm <strong>Thu Ta Kyaw</strong>, but most people call me <strong>Leo</strong>. I study Digital Technology Innovation and I'm heading toward a career in <strong>network engineering</strong>.</p>
+          <p>Working in the university labs showed me how much depends on things just working: a PC that boots into the right system, a projector that shows the slides, a network that stays up. I like finding out why something broke and fixing it.</p>
+          <p>I'm building my foundations with online courses and starting hands-on network labs, which will show up in the Projects section.</p>
+        </div>
+        <dl class="facts">
+          <dt>university</dt><dd>Kasem Bundit University</dd>
+          <dt>major</dt><dd>Digital Technology Innovation</dd>
+          <dt>year</dt><dd>3rd year</dd>
+          <dt>focus</dt><dd>Network engineering</dd>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <section id="playground" class="reveal">
+    <div class="wrap">
+      <h3><span>&gt;</span>Have some fun at my Network playground</h3>
+      <p class="sub">Hover over a device to learn what it does, then send a packet through my lab network. The replies have some F1 references in them.</p>
+      <div class="lab">
+        <svg id="topo" viewBox="0 0 640 320" role="img" aria-label="Network diagram: internet to router to switch to three lab PCs">
+          <g class="links">
+            <line x1="130" y1="50" x2="320" y2="50"/><line x1="320" y1="50" x2="320" y2="140"/>
+            <line x1="320" y1="140" x2="120" y2="255"/><line x1="320" y1="140" x2="320" y2="255"/><line x1="320" y1="140" x2="520" y2="255"/>
+          </g>
+          <path class="route" d="M130 50 L320 50 L320 140 L120 255"/>
+          <path class="route" d="M130 50 L320 50 L320 140 L320 255"/>
+          <path class="route" d="M130 50 L320 50 L320 140 L520 255"/>
+          <g class="dev" tabindex="0" data-info="Internet: where requests to the outside world come from and go to."><ellipse cx="90" cy="50" rx="52" ry="26"/><text x="90" y="55">Internet</text></g>
+          <g class="dev" tabindex="0" data-info="Router: connects different networks and decides the best path for each packet."><circle cx="320" cy="50" r="28"/><text x="320" y="55">Router</text></g>
+          <g class="dev" tabindex="0" data-info="Switch: connects devices inside one network and forwards frames by MAC address."><rect x="280" y="115" width="80" height="50" rx="8"/><text x="320" y="145">Switch</text></g>
+          <g class="dev pc" id="pc0" tabindex="0" data-info="Lab PC: the machines I set up and boot with the right OS before each class."><rect x="75" y="230" width="90" height="50" rx="6"/><text x="120" y="260">Lab PC 1</text></g>
+          <g class="dev pc" id="pc1" tabindex="0" data-info="Lab PC: the machines I set up and boot with the right OS before each class."><rect x="275" y="230" width="90" height="50" rx="6"/><text x="320" y="260">Lab PC 2</text></g>
+          <g class="dev pc" id="pc2" tabindex="0" data-info="Lab PC: the machines I set up and boot with the right OS before each class."><rect x="475" y="230" width="90" height="50" rx="6"/><text x="520" y="260">Lab PC 3</text></g>
+          <circle id="packet" r="7" cx="0" cy="0"/>
+        </svg>
+        <div class="console">
+          <div id="info" class="info">Hover or tap a device.</div>
+          <pre id="log" aria-live="polite">> ready</pre>
+          <button class="btn solid" id="send" type="button">Send packet</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="experience" class="reveal">
+    <div class="wrap">
+      <h3><span>&gt;</span> Experience</h3>
+      <article class="job">
+        <header>
+          <div><h4>Helpdesk Teaching Assistant</h4><div class="where">Kasem Bundit University (part-time)</div></div>
+          <div class="when">Present</div>
+        </header>
+        <ul>
+          <li><strong>Classroom setup.</strong> I prepare the lab before each class for lecturers and students.</li>
+          <li><strong>Hardware checks.</strong> I check lab PCs, projectors, and TVs so everything works before students arrive.</li>
+          <li><strong>Boot and OS selection.</strong> I power on the PCs and boot the right operating system for that day's lecture, such as programming, Adobe, or Office.</li>
+          <li><strong>Live troubleshooting.</strong> When something fails during a lecture, I go to the machine and fix it myself.</li>
+          <li><strong>Escalation.</strong> For bigger problems, I report to my senior and help get them resolved.</li>
+        </ul>
+        <ul class="tags">
+          <li>Hardware troubleshooting</li><li>PC setup</li><li>Projectors and displays</li><li>OS boot selection</li><li>Escalation</li>
+        </ul>
+      </article>
+    </div>
+  </section>
+<section id="hobbies" class="reveal">
+  <div class="wrap">
+    <h3><span>&gt;</span> Off the clock [My hobbies] </h3>
+    <div class="hobbies">
+      <article class="hobby"><h4>F1</h4><p>Every race is a data problem: telemetry, strategy, and pit stops done in about two seconds. It's the same mindset as fixing a lab PC before the lecture starts.</p></article>
+      <article class="hobby"><h4>Football</h4><p>A good team moves the ball to the right player at the right moment. That's what a switch does with packets.</p></article>
+      <article class="hobby"><h4>Gaming</h4><p>Nothing teaches you about latency like lag in the middle of a match. It's where my interest in ping and networks started.</p></article>
+    </div>
+  </div>
+</section>
+  <section id="certs" class="reveal">
+    <div class="wrap">
+      <h3><span>&gt;</span> Certificates</h3>
+      <p class="sub">Click a certificate to view it full size.</p>
+      <!-- CERTIFICATES: save images in assets/certs/ with these names (or change the src) -->
+      <div class="certs">
+      <button class="cert" type="button"><div class="shot" data-ph="Add assets/certs/certificate1.jpg"><img src="assets/certs/certificate1.jpg" alt="Technical Support Fundamentals certificate"></div><b>Technical Support Fundamentals</b><small>Coursera</small></button>
+
+<button class="cert" type="button"><div class="shot" data-ph="Add assets/certs/certificate2.jpg"><img src="assets/certs/certificate2.jpg" alt="Network Architecture Fundamentals certificate"></div><b>Network Architecture Fundamentals</b><small>Coursera</small></button>
+
+<button class="cert" type="button"><div class="shot" data-ph="Add assets/certs/certificate3.jpg"><img src="assets/certs/certificate3.jpg" alt="Foundations of Cybersecurity certificate"></div><b>Foundations of Cybersecurity</b><small>Coursera</small></button>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects" class="reveal">
+    <div class="wrap">
+      <h3><span>&gt;</span> Projects</h3>
+      <p class="sub">Edit the list at the top of script.js to add your own.</p>
+      <div class="projects" id="projectGrid"></div>
+    </div>
+  </section>
+
+  <section id="contact" class="reveal">
+    <div class="wrap contact">
+      <h3><span>&gt;</span> Contact</h3>
+      <p class="sub">Open to internships and entry-level network or IT support roles.</p>
+     <form id="form" class="form">
+  <input id="fname" name="name" placeholder="Your name" required aria-label="Your name">
+  <input id="femail" name="email" type="email" placeholder="Your email" required aria-label="Your email">
+  <textarea id="fmsg" name="message" rows="4" placeholder="Your message" required aria-label="Your message"></textarea>
+  <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
+  <button class="btn solid" type="submit">Send message</button>
+  <p id="formStatus" role="status"></p>
+</form>
+      <div class="links" id="links"></div>
+    </div>
+  </section>
+</main>
+
+<footer><div class="wrap">Thu Ta Kyaw | (Leo) </div></footer>
+<dialog id="lightbox"><img alt=""><button type="button" aria-label="Close">Close</button></dialog>
+<script src="script.js"></script>
+</body>
+</html>
