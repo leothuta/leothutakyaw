@@ -1,17 +1,19 @@
 /* ===== EDIT THIS PART ===== */
 const CONFIG = {
   email:    "thutakyaw2002@gmail.com",
-  linkedin: "https:/www.linkedin.com/in/thu-ta-kyaw-48461a411/",
+  linkedin: "https://www.linkedin.com/in/thu-ta-kyaw-48461a411/",
   github:   "https://github.com/leothuta",
-  telegram: "https://t.me/B_Wiggins", 
-  phone:    "+66 94 308 5958" 
+  telegram: "https://t.me/B_Wiggins",
+  phone:    "+66 94 308 5958"
 };
 
 // Add or change projects here. image: put a file in assets/ (optional).
 const PROJECTS = [
-  { title: "VLAN and inter-VLAN routing lab", status: "In progress",
-    desc: "Segmenting a small network into VLANs and routing between them in Packet Tracer.",
-    tags: ["VLAN", "Routing", "Packet Tracer"], image: "assets/vlan-lab.png", link: "" },
+  { title: "VLAN and inter-VLAN routing lab", status: "Done",
+    desc: "Built a two-VLAN office network (Sales and IT) in Packet Tracer using a switch trunk and router-on-a-stick, then verified connectivity within and between VLANs.",
+    tags: ["VLAN", "Trunking", "Inter-VLAN routing", "Packet Tracer"],
+    image: "assets/vlan-lab.png",
+    link: "https://github.com/leothuta/vlan-inter-vlan-routing-lab" },
   { title: "Small office network design", status: "In progress",
     desc: "Designing and documenting a network for a 20-person office, with addressing plan and topology.",
     tags: ["Subnetting", "Topology", "Documentation"], image: "assets/office-network.png", link: "" },
@@ -21,7 +23,7 @@ const PROJECTS = [
 ];
 /* ===== END EDIT ===== */
 
-const $ = (s, r = document) => r.querySelector(s); 
+const $ = (s, r = document) => r.querySelector(s);
 
 // Missing images show their placeholder text instead of a broken icon
 document.addEventListener("error", e => {
@@ -75,13 +77,13 @@ $("#send").addEventListener("click", () => {
     packet.style.display = "none";
     const pc = $("#pc" + i); pc.classList.add("ok");
     setTimeout(() => pc.classList.remove("ok"), 900);
-  const ms = 2 + Math.floor(Math.random() * 6);
-const msgs = [
-  `Box box! Delivered to Lab PC ${i + 1} in ${ms}ms`,
-  `Purple sector! Lab PC ${i + 1} replied in ${ms}ms`,
-  `Lights out and away we go: Lab PC ${i + 1}, ${ms}ms`
-];
-say(msgs[Math.floor(Math.random() * msgs.length)]);
+    const ms = 2 + Math.floor(Math.random() * 6);
+    const msgs = [
+      `Box box! Delivered to Lab PC ${i + 1} in ${ms}ms`,
+      `Purple sector! Lab PC ${i + 1} replied in ${ms}ms`,
+      `Lights out and away we go: Lab PC ${i + 1}, ${ms}ms`
+    ];
+    say(msgs[Math.floor(Math.random() * msgs.length)]);
     busy = false;
   })(t0);
 });
@@ -127,7 +129,6 @@ if (CONFIG.telegram) L.push(icon("telegram", "Telegram", CONFIG.telegram));
 if (CONFIG.phone)    L.push(icon("phone", "Call " + CONFIG.phone, "tel:" + CONFIG.phone.replace(/\s/g, ""), false));
 $("#links").innerHTML = L.join("");
 
-// Contact form opens the visitor's email app with the message filled in
 // Contact form: sends the message to your inbox via Web3Forms
 const WEB3FORMS_KEY = "60a8a688-bb30-4e08-9e7f-f5598628fcf2";
 $("#form").addEventListener("submit", async e => {
