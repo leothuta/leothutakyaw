@@ -153,3 +153,9 @@ $("#form").addEventListener("submit", async e => {
   }
   btn.disabled = false;
 });
+// Light / dark theme toggle
+$("#themeBtn").addEventListener("click", () => {
+  const next = document.documentElement.dataset.theme === "light" ? "dark" : "light";
+  document.documentElement.dataset.theme = next;
+  try { localStorage.setItem("theme", next); } catch {}
+});
