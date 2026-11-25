@@ -108,7 +108,29 @@ $("#projectGrid").innerHTML = PROJECTS.map(p => `
       ${p.link ? `<a href="${p.link}" target="_blank" rel="noopener">View project</a>` : ""}
     </div>
   </article>`).join("");
-
+// Mobile: show the first item only, with a "View N more" button
+function addMore(gridSel) {
+  const grid = $(gridSel);
+  const n = grid.children.length - 1;
+  if (n < 1) return;
+  grid.classList.add("collapsible");
+  const btn = document.createElement("button");
+  btn.type = "button";
+  btn.className = "more-btn";
+  btn.setAttribute("aria-expanded", "false");
+  const arrow = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>';
+  const label = open => `<span>${open ? "Show less" : "View " + n + " more"}</span>${arrow}`;
+  btn.innerHTML = label(false);
+  btn.addEventListener("click", () => {
+    const open = grid.classList.toggle("expanded");
+    btn.setAttribute("aria-expanded", open);
+    btn.innerHTML = label(open);
+    if (!open) grid.scrollIntoView({ behavior: "smooth", block: "nearest" });
+  });
+  grid.after(btn);
+}
+addMore(".certs");
+addMore("#projectGrid");
 // Contact links (icons)
 const ICONS = {
   email: '<path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/>',
