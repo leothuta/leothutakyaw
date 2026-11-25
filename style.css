@@ -154,3 +154,12 @@ nav ul{margin-left:auto}
 [data-theme="light"] .ico:hover,[data-theme="light"] .ico:focus-visible{box-shadow:0 0 18px rgba(10,127,111,.3)}
 [data-theme="light"] .proj:hover{box-shadow:0 12px 30px rgba(18,35,61,.12),0 0 0 1px var(--accent)}
 [data-theme="light"] dialog::backdrop{background:rgba(20,30,50,.6)}
+/* ===== Mobile "view more" ===== */
+.more-btn{display:none}
+@media(max-width:700px){
+  .collapsible:not(.expanded)>:nth-child(n+2){display:none}
+  .more-btn{display:flex;align-items:center;justify-content:center;gap:.5rem;margin:1.4rem auto 0;padding:.7rem 1.3rem;background:transparent;border:1px solid var(--accent);border-radius:30px;color:var(--accent);font:500 .92rem var(--mono);cursor:pointer;transition:background .2s}
+  .more-btn:hover{background:rgba(100,255,218,.1)}
+  .more-btn svg{width:18px;height:18px;transition:transform .25s}
+  .more-btn[aria-expanded="true"] svg{transform:rotate(180deg)}
+}
