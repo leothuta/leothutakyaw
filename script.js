@@ -181,3 +181,16 @@ $("#themeBtn").addEventListener("click", () => {
   document.documentElement.dataset.theme = next;
   try { localStorage.setItem("theme", next); } catch {}
 });
+// Mobile menu
+const menuBtn = $("#menuBtn"), navList = $("#navList");
+const setMenu = open => {
+  navList.classList.toggle("open", open);
+  menuBtn.classList.toggle("open", open);
+  menuBtn.setAttribute("aria-expanded", open);
+  menuBtn.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+};
+menuBtn.addEventListener("click", () => setMenu(!navList.classList.contains("open")));
+navList.addEventListener("click", e => { if (e.target.closest("a")) setMenu(false); });
+document.addEventListener("click", e => { if (!e.target.closest("nav")) setMenu(false); });
+addEventListener("keydown", e => { if (e.key === "Escape") setMenu(false); });
+addEventListener("resize", () => { if (innerWidth > 760) setMenu(false); });
