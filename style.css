@@ -126,3 +126,31 @@ footer{padding:2rem 0;text-align:center;color:var(--muted);font:400 .85rem var(-
 .ico:hover,.ico:focus-visible{transform:translateY(-5px);border-color:var(--accent);box-shadow:0 0 18px rgba(100,255,218,.35);text-decoration:none}
 .links{gap:1.1rem}
 #formStatus{margin:0;min-height:1.5em;color:var(--accent);font:400 .9rem var(--mono);text-align:center}
+/* ===== Theme toggle ===== */
+body{transition:background .3s,color .3s}
+nav ul{margin-left:auto}
+.theme-btn{display:grid;place-items:center;width:38px;height:38px;margin-left:1rem;border:1px solid var(--line);border-radius:50%;background:var(--panel);color:var(--accent);cursor:pointer;transition:border-color .2s,transform .2s}
+.theme-btn:hover{border-color:var(--accent);transform:rotate(15deg)}
+.theme-btn svg{width:20px;height:20px}
+.i-moon{display:none}
+:root[data-theme="light"] .i-moon{display:block}
+:root[data-theme="light"] .i-sun{display:none}
+
+/* ===== Light theme ===== */
+:root[data-theme="light"]{
+  --bg:#f3f7fb; --panel:#ffffff; --line:#d3deea;
+  --text:#12233d; --muted:#51627d;
+  --accent:#0a7f6f; --blue:#1f6fb8; --pink:#c2188f;
+}
+[data-theme="light"] nav{background:rgba(243,247,251,.92)}
+[data-theme="light"] #log{background:#eaf1f8;color:#0a6b5d}
+[data-theme="light"] .glow{background:radial-gradient(500px circle at var(--x,50%) var(--y,30%),rgba(10,127,111,.09),transparent 60%)}
+[data-theme="light"] .btn:hover{background:rgba(10,127,111,.1)}
+[data-theme="light"] .btn.solid:hover{background:#0c9784}
+[data-theme="light"] .dev:hover rect,[data-theme="light"] .dev:hover circle,[data-theme="light"] .dev:hover ellipse,
+[data-theme="light"] .dev:focus rect,[data-theme="light"] .dev:focus circle,[data-theme="light"] .dev:focus ellipse{fill:rgba(10,127,111,.15)}
+[data-theme="light"] .dev.ok rect{fill:rgba(10,127,111,.3)}
+[data-theme="light"] .photo{box-shadow:0 0 0 8px var(--panel),0 0 40px rgba(10,127,111,.2)}
+[data-theme="light"] .ico:hover,[data-theme="light"] .ico:focus-visible{box-shadow:0 0 18px rgba(10,127,111,.3)}
+[data-theme="light"] .proj:hover{box-shadow:0 12px 30px rgba(18,35,61,.12),0 0 0 1px var(--accent)}
+[data-theme="light"] dialog::backdrop{background:rgba(20,30,50,.6)}
